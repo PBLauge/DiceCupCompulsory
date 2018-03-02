@@ -1,6 +1,5 @@
 package com.example.fars_pc.dicecup;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,21 +8,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.fars_pc.dicecup.Model.DCLogic;
 import com.example.fars_pc.dicecup.Model.IDCLogic;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.fars_pc.dicecup.R.id.btnRoll;
-import static java.lang.System.runFinalizersOnExit;
 
 public class MainActivity extends AppCompatActivity {
 
     private IDCLogic logic;
-    private LinearLayout listHistory;
     private LinearLayout diceView;
     private ArrayList<Integer> valueList;
     private ArrayList<String> sumHistory;
@@ -40,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         logic = new DCLogic();
-//        listHistory = findViewById(R.id.listHistory);
         diceView = findViewById(R.id.diceView);
         valueList = new ArrayList<>();
         sumHistory = new ArrayList<>();
@@ -51,13 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 onClickRoll();
             }
         });
-
-        /*findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onClickClear();
-            }
-        });*/
 
         rolls = (savedInstanceState != null ? savedInstanceState.getInt(COUNT): 0);
 
@@ -72,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
             valueList.add(logic.selectValueBetween1And6());
         }
         drawDices();
-//        drawHistory();
     }
 
     protected void onSaveInstanceState(Bundle state)
