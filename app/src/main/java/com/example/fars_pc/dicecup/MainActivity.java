@@ -1,6 +1,5 @@
 package com.example.fars_pc.dicecup;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,21 +8,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.fars_pc.dicecup.Model.DCLogic;
 import com.example.fars_pc.dicecup.Model.IDCLogic;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.fars_pc.dicecup.R.id.btnRoll;
-import static java.lang.System.runFinalizersOnExit;
 
 public class MainActivity extends AppCompatActivity {
 
     private IDCLogic logic;
-    private LinearLayout listHistory;
     private LinearLayout diceView;
     private ArrayList<Integer> valueList;
     private ArrayList<String> sumHistory;
@@ -40,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         logic = new DCLogic();
-        listHistory = findViewById(R.id.listHistory);
         diceView = findViewById(R.id.diceView);
         valueList = new ArrayList<>();
         sumHistory = new ArrayList<>();
@@ -49,13 +43,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onClickRoll();
-            }
-        });
-
-        findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onClickClear();
             }
         });
 
@@ -72,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
             valueList.add(logic.selectValueBetween1And6());
         }
         drawDices();
-        drawHistory();
     }
 
     protected void onSaveInstanceState(Bundle state)
@@ -137,15 +123,16 @@ public class MainActivity extends AppCompatActivity {
     private void onClickHistory(){
         Intent intent = new Intent();
         intent.setClass(this, HistoryActivity.class);
+        intent.putExtra("Sum", this.sumHistory);
         startActivity(intent);
     }
 
     //Hist
-    private void clearHistory() {
+    /*private void clearHistory() {
         listHistory.removeAllViews();
         sumHistory.clear();
         rolls = 0;
-    }
+    }*/
 
     private void drawDices(){
         diceView.removeAllViews();
@@ -158,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Hist
-    private void drawHistory(){
+    /*private void drawHistory(){
         listHistory.removeAllViews();
         for (String h : sumHistory)
         {
@@ -166,16 +153,16 @@ public class MainActivity extends AppCompatActivity {
             history.setText(h);
             listHistory.addView(history);
         }
-    }
+    }*/
 
     private void onClickRoll() {
         rolls++;
         sum = 0;
-        if(rolls >= 6)
+        /*if(rolls >= 6)
         {
             clearHistory();
         }
-        else {
+        else {*/
             for (int i = 0; i < valueList.size(); i++) {
                 valueList.remove(i);
                 int newValue = logic.selectValueBetween1And6();
@@ -184,14 +171,14 @@ public class MainActivity extends AppCompatActivity {
             drawDices();
             String newHistory = "Sum: " + sum;
             sumHistory.add(newHistory);
-            drawHistory();
-        }
+//            drawHistory();
+//        }
     }
 
     //Hist
-    private void onClickClear() {
-            clearHistory();
-    }
+//    private void onClickClear() {
+//            clearHistory();
+//    }
 
     public void setDiceImage(int value, ImageView v){
         switch (value) {

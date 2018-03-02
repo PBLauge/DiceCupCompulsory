@@ -3,11 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
 
-
     <item
         android:id="@+id/action_add"
         android:title="@string/action_add"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_remove"
         android:title="@string/action_remove"
@@ -19,6 +18,6 @@
     <item
         android:id="@+id/goToHistory"
         android:title="History"
-        app:showAsAction="always"
+        app:showAsAction="never"
         />
 </menu>
