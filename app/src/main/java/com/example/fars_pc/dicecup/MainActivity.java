@@ -122,17 +122,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void onClickHistory(){
         Intent intent = new Intent();
-        intent.setClass(this, HistoryActivity.class);
-        intent.putExtra("Sum", this.sumHistory);
+        intent.setClass(MainActivity.this, HistoryActivity.class);
+        Bundle b = new Bundle();
+        b.putStringArrayList("list", sumHistory);
+        intent.putExtras(b);
         startActivity(intent);
-    }
 
-    //Hist
-    /*private void clearHistory() {
-        listHistory.removeAllViews();
-        sumHistory.clear();
-        rolls = 0;
-    }*/
+    }
 
     private void drawDices(){
         diceView.removeAllViews();
@@ -144,25 +140,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Hist
-    /*private void drawHistory(){
-        listHistory.removeAllViews();
-        for (String h : sumHistory)
-        {
-            TextView history = new TextView(this);
-            history.setText(h);
-            listHistory.addView(history);
-        }
-    }*/
-
     private void onClickRoll() {
         rolls++;
         sum = 0;
-        /*if(rolls >= 6)
-        {
-            clearHistory();
-        }
-        else {*/
             for (int i = 0; i < valueList.size(); i++) {
                 valueList.remove(i);
                 int newValue = logic.selectValueBetween1And6();
@@ -171,14 +151,7 @@ public class MainActivity extends AppCompatActivity {
             drawDices();
             String newHistory = "Sum: " + sum;
             sumHistory.add(newHistory);
-//            drawHistory();
-//        }
     }
-
-    //Hist
-//    private void onClickClear() {
-//            clearHistory();
-//    }
 
     public void setDiceImage(int value, ImageView v){
         switch (value) {
