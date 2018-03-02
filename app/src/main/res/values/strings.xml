@@ -1,6 +1,7 @@
 <resources>
     <string name="btnClear">Clear</string>
     <string name="btnClear2">Clear</string>
+    <string name="btnBack">Back</string>
     <string name="btnRoll">Roll</string>
     <string name="app_name">DiceCup</string>
     <string name="action_add">Add dice</string>

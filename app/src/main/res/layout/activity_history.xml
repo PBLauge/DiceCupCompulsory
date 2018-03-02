@@ -5,33 +5,30 @@
     android:layout_height="match_parent"
     tools:context="com.example.fars_pc.dicecup.HistoryActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="History Activity WORKS!"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="69dp" />
-
     <RelativeLayout
         android:id="@+id/listHistory2"
         android:layout_width="match_parent"
         android:layout_height="245dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="25dp"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
-
 
     </RelativeLayout>
 
     <Button
         android:id="@+id/btnClear2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="start"
+        android:text="@string/btnClear2" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_gravity="start"
-        android:layout_marginBottom="23dp"
-        android:text="@string/btnClear2" />
+        android:text="@string/btnBack" />
 </RelativeLayout>

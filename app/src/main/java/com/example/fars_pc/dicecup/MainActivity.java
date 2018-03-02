@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         logic = new DCLogic();
-        listHistory = findViewById(R.id.listHistory);
+//        listHistory = findViewById(R.id.listHistory);
         diceView = findViewById(R.id.diceView);
         valueList = new ArrayList<>();
         sumHistory = new ArrayList<>();
@@ -52,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onClickClear();
             }
-        });
+        });*/
 
         rolls = (savedInstanceState != null ? savedInstanceState.getInt(COUNT): 0);
 
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             valueList.add(logic.selectValueBetween1And6());
         }
         drawDices();
-        drawHistory();
+//        drawHistory();
     }
 
     protected void onSaveInstanceState(Bundle state)
@@ -142,11 +142,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Hist
-    private void clearHistory() {
+    /*private void clearHistory() {
         listHistory.removeAllViews();
         sumHistory.clear();
         rolls = 0;
-    }
+    }*/
 
     private void drawDices(){
         diceView.removeAllViews();
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Hist
-    private void drawHistory(){
+    /*private void drawHistory(){
         listHistory.removeAllViews();
         for (String h : sumHistory)
         {
@@ -167,16 +167,16 @@ public class MainActivity extends AppCompatActivity {
             history.setText(h);
             listHistory.addView(history);
         }
-    }
+    }*/
 
     private void onClickRoll() {
         rolls++;
         sum = 0;
-        if(rolls >= 6)
+        /*if(rolls >= 6)
         {
             clearHistory();
         }
-        else {
+        else {*/
             for (int i = 0; i < valueList.size(); i++) {
                 valueList.remove(i);
                 int newValue = logic.selectValueBetween1And6();
@@ -185,14 +185,14 @@ public class MainActivity extends AppCompatActivity {
             drawDices();
             String newHistory = "Sum: " + sum;
             sumHistory.add(newHistory);
-            drawHistory();
-        }
+//            drawHistory();
+//        }
     }
 
     //Hist
-    private void onClickClear() {
-            clearHistory();
-    }
+//    private void onClickClear() {
+//            clearHistory();
+//    }
 
     public void setDiceImage(int value, ImageView v){
         switch (value) {

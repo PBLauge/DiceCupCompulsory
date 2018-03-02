@@ -19,17 +19,17 @@
         android:layout_gravity="center"
         android:text="@string/btnRoll" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/listHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical"></LinearLayout>-->
 
-    <Button
+    <!--<Button
         android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:text="@string/btnClear"/>
+        android:text="@string/btnClear"/>-->
 
 </LinearLayout>
