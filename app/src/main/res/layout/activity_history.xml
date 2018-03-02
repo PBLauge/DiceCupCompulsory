@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,4 +12,26 @@
         android:text="History Activity WORKS!"
         tools:layout_editor_absoluteX="144dp"
         tools:layout_editor_absoluteY="69dp" />
-</android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/listHistory2"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical">
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnClear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="start"
+        android:layout_marginBottom="23dp"
+        android:text="@string/btnClear2" />
+</RelativeLayout>

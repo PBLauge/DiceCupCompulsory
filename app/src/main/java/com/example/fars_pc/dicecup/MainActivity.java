@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
     private void onClickHistory(){
         Intent intent = new Intent();
         intent.setClass(this, HistoryActivity.class);
+        intent.putExtra("Sum", this.sumHistory);
         startActivity(intent);
     }
 
